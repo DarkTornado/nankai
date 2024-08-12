@@ -3,6 +3,10 @@ const app = express();
 const nankai = require('./nankai');
 
 app.get('/', async (req, res) => {
+    // console.log(req.query);
+    res.set({
+        'Content-Type': 'application/json; charset=utf-8'
+    });
     res.send(JSON.stringify(await nankai('nankai'), null, 4));
 });
 
