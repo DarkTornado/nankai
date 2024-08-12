@@ -21,10 +21,10 @@ if (line == 'nankai') {
     names = {"1":"ﾗﾋﾟｰﾄα","2":"ﾗﾋﾟｰﾄα","3":"ﾗﾋﾟｰﾄβ","4":"サザン","5":"サザン","6":"サザン","7":"急行","8":"急行","9":"急行","10":"急行","11":"空港急行","12":"空港急行","13":"区急","14":"区急","15":"準急","16":"準急","17":"準急","18":"普通","19":"普通","20":"普通","21":"普通","22":"普通","23":"普通","24":"회송","25":"회송","26":"회송","27":"회송","28":"회송","29":"회송","30":"회송","31":"회송","32":"회송"};
 }
 else if (line == 'koya') {
-	
+    
 }
 else if (line == 'senboku') {
-	
+    
 }
 process.env.TZ = 'Asia/Seoul';
 var ts = Date.now();
@@ -56,14 +56,14 @@ response.data.trains.forEach((e, i) => {
 
 var result = [];
 stns.forEach((e, i) => {
-	result[i] = {
-	stn: e.name,
-	up: [],
-	dn: []
-	};
-	data.forEach((e) => {
-		if (e.stnId == stns[i].id) result[i][e.updn].push(e);
-	});
+    result[i] = {
+        stn: e.name,
+        up: [],
+        dn: []
+    };
+    data.forEach((e) => {
+        if (e.stnId == stns[i].id) result[i][e.updn].push(e);
+    });
 });
 
 return result;
