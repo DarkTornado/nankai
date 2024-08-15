@@ -70,8 +70,13 @@ async function init(line) {
             up: [],
             dn: []
         };
+    });
+    result.forEach((e, i) => {
         data.forEach((e) => {
-            if (e.stnId == stns[i].id) result[i][e.updn].push(e);
+            if (e.stnId != stns[i].id) return;
+            var index = i;
+            if (e.updn == 'dn' && e.sts == '접근') index++;
+            result[index][e.updn].push(e);
         });
     });
 
